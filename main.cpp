@@ -58,38 +58,105 @@ class grid
                 }
                 std::cout << "loop" << i << std::endl;
 
-                int randompos = GetRandomValue(0,currentgrid.getn()-1);      //step2
-                int whichsymb = GetRandomValue(0,1);
-                char chosensymb;
-                if (whichsymb == 0)
-                    chosensymb = 'O';
-                else
-                    chosensymb = 'X';
-                std::cout<<"chosen symbol is "<<chosensymb<<" row "<<randompos<<std::endl;
-
                 int crom = 0;                               // step3
-                if(currentgrid.n == 2)    
+                if(currentgrid.getn() == 2)    
                     crom = pickmove(0,100);
-                else if (currentgrid.n > 2 && currentgrid.n < n)
+                else if (currentgrid.getn() > 2 && currentgrid.n < n)
                     crom = pickmove(45,45);
-                else if (currentgrid.n == n)
+                else if (currentgrid.getn() == n)
                     crom = pickmove(80,20);
-                else if (currentgrid.n > n)
+                else if (currentgrid.getn() > n)
                     crom = pickmove(45,10);
 
-                currentgrid.docromwellmove(crom,chosensymb,randompos);  //step 4
+                currentgrid.docromwellmove(crom,currentgrid.getn());  //step 4
             }
             return currentgrid;
         }
 
-        void docromwellmove (int crom,char chosensymb ,int randompos)
+        std::vector<bool> check_destabilizable_subgrid(int randompos, auto symbolvec, auto dualsymbolvec, int rowdiff, int coldiff)
         {
+            std::vector<bool> verify = {false,false};
+            if (symbolvec[randompos+rowdiff] == symbolvec[randompos]+coldiff)
+            {
+                verify[0]= true;
+                if (dualsymbolvec[randompos] == symbolvec[randompos]+coldiff) 
+                    verify[1] = false;
+                else
+                    verify[1]= true;
+            }
+            return verify;
+        }
+
+        void docromwellmove (int crom, int n)
+        {
+            int randompos = 0;
+            char chosensymb;
+            std::vector<bool> destabilizable = {false,false};
+            std::vector<int> rowdiff = {-1,-1,1,1};
+            std::vector<int> coldiff = {-1,1,-1,1};
+            int whichcorner = 0;
+            if (crom == -1)
+            {
+                int *seq = LoadRandomSequence(n*2,0,(n*2)-1);
+                for (int i = 0 ; i<n ; i++)
+                {
+                    if (seq[i] < n )
+                    {
+                        randompos = seq[i];
+                        chosensymb = 'X';
+                    }
+                    else
+                    {
+                        randompos = seq[i]-n;
+                        chosensymb = 'O';
+                    }
+                    
+                    auto& symbolvec = getVec(chosensymb);
+                    auto& dualsymbolvec = getDualVec(chosensymb);
+                    while(destabilizable[0] == false)
+                    {
+                        destabilizable = check_destabilizable_subgrid(randompos,symbolvec,dualsymbolvec,rowdiff[whichcorner],coldiff[whichcorner]);
+                        whichcorner++;
+                    }
+                }
+                UnloadRandomSequence(seq);
+            }
+            else
+            {
+                randompos = GetRandomValue(0,n-1); 
+                int whichsymb = GetRandomValue(0,1);
+                if (whichsymb == 0)
+                    chosensymb = 'X';
+                else
+                    chosensymb = 'O';
+            }
+
+            std::cout<<"chosen symbol is "<<chosensymb<<" row "<<randompos<<" move "<<crom<<std::endl;
+
             auto& symbolvec = getVec(chosensymb);
             auto& dualsymbolvec = getDualVec(chosensymb);
 
             if (crom == -1)
             {
-                std::cout<<"destabilize"<<std::endl;
+                if (destabilizable[0] == false)
+                {
+                    std::cout<<"not destabilizable";
+                    return;
+                }
+
+                std::cout<<"destabilize\n";
+                int deletedcolumn = symbolvec[randompos]-coldiff[whichcorner];
+                int newdualsymbol = dualsymbolvec[randompos+rowdiff[whichcorner]];
+                dualsymbolvec[randompos+rowdiff[whichcorner]] = newdualsymbol;
+                symbolvec.erase(symbolvec.begin()+randompos+rowdiff[whichcorner]);
+                dualsymbolvec.erase(dualsymbolvec.begin()+randompos+rowdiff[whichcorner]);
+                
+                for (int& val : symbolvec) 
+                    if (val > deletedcolumn) val--;
+                for (int& val : dualsymbolvec) 
+                    if (val > deletedcolumn) val--;
+
+                setn(getn() - 1);
             }
 
             else if (crom == 0)
