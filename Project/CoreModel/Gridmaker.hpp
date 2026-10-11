@@ -11,7 +11,7 @@ class Gridmaker
     public:
         Gridmaker ();
         grid grid_generator (int n);
-        std::vector<bool> check_destabilizable_subgrid(int randompos, auto& symbolvec, auto& dualsymbolvec, int rowdiff, int coldiff);
+        std::vector<bool> check_destabilizable_subgrid(int randompos, auto& symbolvec, auto& dualsymbolvec, int rowdiff, int coldiff, int n);
         void do_cromwell_move (int crom, grid& currentgrid);
 };
 

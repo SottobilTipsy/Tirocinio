@@ -29,7 +29,7 @@ grid Gridmaker::grid_generator (int n)
     SetRandomSeed(time(NULL));
     for (int i=0 ; i < n*10 ; i++)
     {
-        /*
+        
         for (int i = 1 ; i <= currentgrid.getn() ; i++)
         {
             for (int j = 1 ; j <= currentgrid.getn() ; j++)
@@ -44,7 +44,7 @@ grid Gridmaker::grid_generator (int n)
             std::cout<<"\n";
 
         }
-        std::cout << "loop" << i << std::endl; */
+        std::cout << "loop" << i << std::endl; 
 
         int crom = 0;                               
         if(currentgrid.getn() == 2)    
@@ -75,12 +75,12 @@ grid Gridmaker::grid_generator (int n)
     return currentgrid;
 }
 
-std::vector<bool> Gridmaker::check_destabilizable_subgrid(int randompos, auto& symbolvec, auto& dualsymbolvec, int rowdiff, int coldiff)
+std::vector<bool> Gridmaker::check_destabilizable_subgrid(int randompos, auto& symbolvec, auto& dualsymbolvec, int rowdiff, int coldiff, int n)
 {
     std::vector<bool> verify = {false,false};
-    if (randompos + rowdiff < 0 || randompos + rowdiff >= getn())
+    if (randompos + rowdiff < 0 || randompos + rowdiff >= n)
         return verify;
-    if (symbolvec[randompos] + coldiff < 1 || symbolvec[randompos] + coldiff > getn() )
+    if (symbolvec[randompos] + coldiff < 1 || symbolvec[randompos] + coldiff > n )
         return verify;
 
     if (symbolvec[randompos+rowdiff] == symbolvec[randompos]+coldiff)
@@ -128,7 +128,7 @@ void Gridmaker::do_cromwell_move (int crom, grid& currentgrid)
             auto& dualsymbolvec = currentgrid.getDualVec(chosensymb);
             while(destabilizable[0] == false && whichcorner < 4)
             {
-                destabilizable = check_destabilizable_subgrid(randompos,symbolvec,dualsymbolvec,rowdiff[whichcorner],coldiff[whichcorner]);
+                destabilizable = check_destabilizable_subgrid(randompos,symbolvec,dualsymbolvec,rowdiff[whichcorner],coldiff[whichcorner],currentgrid.getn());
                 if (destabilizable[0] == true)
                     break;
                 whichcorner++;
