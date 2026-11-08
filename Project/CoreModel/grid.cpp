@@ -1,6 +1,9 @@
 #include "grid.hpp"
 #include <vector> 
 
+grid::grid()
+{}
+
 grid::grid(int n_, std::vector<int> Ovec_, std::vector<int> Xvec_)
             : n(n_), Ovec(Ovec_), Xvec(Xvec_) {}
 

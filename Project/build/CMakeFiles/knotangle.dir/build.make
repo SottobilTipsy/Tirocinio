@@ -128,12 +128,72 @@ CMakeFiles/knotangle.dir/Graphics/temp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knotangle.dir/Graphics/temp.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rocco/VSCC/Tirocinio/Project/Graphics/temp.cpp -o CMakeFiles/knotangle.dir/Graphics/temp.cpp.s
 
+CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o: CMakeFiles/knotangle.dir/flags.make
+CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o: /home/rocco/VSCC/Tirocinio/Project/Graphics/Nbox.cpp
+CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o: CMakeFiles/knotangle.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rocco/VSCC/Tirocinio/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o -MF CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o.d -o CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o -c /home/rocco/VSCC/Tirocinio/Project/Graphics/Nbox.cpp
+
+CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rocco/VSCC/Tirocinio/Project/Graphics/Nbox.cpp > CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.i
+
+CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rocco/VSCC/Tirocinio/Project/Graphics/Nbox.cpp -o CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.s
+
+CMakeFiles/knotangle.dir/Graphics/Button.cpp.o: CMakeFiles/knotangle.dir/flags.make
+CMakeFiles/knotangle.dir/Graphics/Button.cpp.o: /home/rocco/VSCC/Tirocinio/Project/Graphics/Button.cpp
+CMakeFiles/knotangle.dir/Graphics/Button.cpp.o: CMakeFiles/knotangle.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rocco/VSCC/Tirocinio/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/knotangle.dir/Graphics/Button.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knotangle.dir/Graphics/Button.cpp.o -MF CMakeFiles/knotangle.dir/Graphics/Button.cpp.o.d -o CMakeFiles/knotangle.dir/Graphics/Button.cpp.o -c /home/rocco/VSCC/Tirocinio/Project/Graphics/Button.cpp
+
+CMakeFiles/knotangle.dir/Graphics/Button.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knotangle.dir/Graphics/Button.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rocco/VSCC/Tirocinio/Project/Graphics/Button.cpp > CMakeFiles/knotangle.dir/Graphics/Button.cpp.i
+
+CMakeFiles/knotangle.dir/Graphics/Button.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knotangle.dir/Graphics/Button.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rocco/VSCC/Tirocinio/Project/Graphics/Button.cpp -o CMakeFiles/knotangle.dir/Graphics/Button.cpp.s
+
+CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o: CMakeFiles/knotangle.dir/flags.make
+CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o: /home/rocco/VSCC/Tirocinio/Project/Graphics/Checkbox.cpp
+CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o: CMakeFiles/knotangle.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rocco/VSCC/Tirocinio/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o -MF CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o.d -o CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o -c /home/rocco/VSCC/Tirocinio/Project/Graphics/Checkbox.cpp
+
+CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rocco/VSCC/Tirocinio/Project/Graphics/Checkbox.cpp > CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.i
+
+CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rocco/VSCC/Tirocinio/Project/Graphics/Checkbox.cpp -o CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.s
+
+CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o: CMakeFiles/knotangle.dir/flags.make
+CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o: /home/rocco/VSCC/Tirocinio/Project/Graphics/knotbox.cpp
+CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o: CMakeFiles/knotangle.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/rocco/VSCC/Tirocinio/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o -MF CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o.d -o CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o -c /home/rocco/VSCC/Tirocinio/Project/Graphics/knotbox.cpp
+
+CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rocco/VSCC/Tirocinio/Project/Graphics/knotbox.cpp > CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.i
+
+CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rocco/VSCC/Tirocinio/Project/Graphics/knotbox.cpp -o CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.s
+
 # Object files for target knotangle
 knotangle_OBJECTS = \
 "CMakeFiles/knotangle.dir/main.cpp.o" \
 "CMakeFiles/knotangle.dir/CoreModel/grid.cpp.o" \
 "CMakeFiles/knotangle.dir/CoreModel/Gridmaker.cpp.o" \
-"CMakeFiles/knotangle.dir/Graphics/temp.cpp.o"
+"CMakeFiles/knotangle.dir/Graphics/temp.cpp.o" \
+"CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o" \
+"CMakeFiles/knotangle.dir/Graphics/Button.cpp.o" \
+"CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o" \
+"CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o"
 
 # External object files for target knotangle
 knotangle_EXTERNAL_OBJECTS =
@@ -142,6 +202,10 @@ knotangle: CMakeFiles/knotangle.dir/main.cpp.o
 knotangle: CMakeFiles/knotangle.dir/CoreModel/grid.cpp.o
 knotangle: CMakeFiles/knotangle.dir/CoreModel/Gridmaker.cpp.o
 knotangle: CMakeFiles/knotangle.dir/Graphics/temp.cpp.o
+knotangle: CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o
+knotangle: CMakeFiles/knotangle.dir/Graphics/Button.cpp.o
+knotangle: CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o
+knotangle: CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o
 knotangle: CMakeFiles/knotangle.dir/build.make
 knotangle: CMakeFiles/knotangle.dir/compiler_depend.ts
 knotangle: _deps/raylib-build/raylib/libraylib.a
@@ -151,7 +215,7 @@ knotangle: /usr/lib/x86_64-linux-gnu/libGLU.so
 knotangle: /usr/lib/x86_64-linux-gnu/librt.a
 knotangle: /usr/lib/x86_64-linux-gnu/libm.so
 knotangle: CMakeFiles/knotangle.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/rocco/VSCC/Tirocinio/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable knotangle"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/rocco/VSCC/Tirocinio/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable knotangle"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/knotangle.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

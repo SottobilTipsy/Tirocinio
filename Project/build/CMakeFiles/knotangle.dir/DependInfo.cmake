@@ -10,6 +10,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/rocco/VSCC/Tirocinio/Project/CoreModel/Gridmaker.cpp" "CMakeFiles/knotangle.dir/CoreModel/Gridmaker.cpp.o" "gcc" "CMakeFiles/knotangle.dir/CoreModel/Gridmaker.cpp.o.d"
   "/home/rocco/VSCC/Tirocinio/Project/CoreModel/grid.cpp" "CMakeFiles/knotangle.dir/CoreModel/grid.cpp.o" "gcc" "CMakeFiles/knotangle.dir/CoreModel/grid.cpp.o.d"
+  "/home/rocco/VSCC/Tirocinio/Project/Graphics/Button.cpp" "CMakeFiles/knotangle.dir/Graphics/Button.cpp.o" "gcc" "CMakeFiles/knotangle.dir/Graphics/Button.cpp.o.d"
+  "/home/rocco/VSCC/Tirocinio/Project/Graphics/Checkbox.cpp" "CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o" "gcc" "CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o.d"
+  "/home/rocco/VSCC/Tirocinio/Project/Graphics/Nbox.cpp" "CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o" "gcc" "CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o.d"
+  "/home/rocco/VSCC/Tirocinio/Project/Graphics/knotbox.cpp" "CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o" "gcc" "CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o.d"
   "/home/rocco/VSCC/Tirocinio/Project/Graphics/temp.cpp" "CMakeFiles/knotangle.dir/Graphics/temp.cpp.o" "gcc" "CMakeFiles/knotangle.dir/Graphics/temp.cpp.o.d"
   "/home/rocco/VSCC/Tirocinio/Project/main.cpp" "CMakeFiles/knotangle.dir/main.cpp.o" "gcc" "CMakeFiles/knotangle.dir/main.cpp.o.d"
   "" "knotangle" "gcc" "CMakeFiles/knotangle.dir/link.d"

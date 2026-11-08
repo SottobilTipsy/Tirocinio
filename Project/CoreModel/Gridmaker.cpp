@@ -27,9 +27,10 @@ Gridmaker::Gridmaker()
 grid Gridmaker::grid_generator (int n)
 {
     SetRandomSeed(time(NULL));
+    
     for (int i=0 ; i < n*10 ; i++)
     {
-        
+        /*
         for (int i = 1 ; i <= currentgrid.getn() ; i++)
         {
             for (int j = 1 ; j <= currentgrid.getn() ; j++)
@@ -42,9 +43,8 @@ grid Gridmaker::grid_generator (int n)
                     std::cout<<"  ";    
             }
             std::cout<<"\n";
-
         }
-        std::cout << "loop" << i << std::endl; 
+        std::cout << "loop" << i << std::endl; */
 
         int crom = 0;                               
         if(currentgrid.getn() == 2)    
@@ -58,7 +58,6 @@ grid Gridmaker::grid_generator (int n)
 
         do_cromwell_move(crom,currentgrid);  
     }
-    std::cout<<"entering while loop";
     while (currentgrid.getn() != n)
     {
         if ( currentgrid.getn() < n )
@@ -91,6 +90,132 @@ std::vector<bool> Gridmaker::check_destabilizable_subgrid(int randompos, auto& s
             { verify[0] = true; verify[1] = true; }
     }
     return verify;
+}
+void Gridmaker::do_commutation_move(auto& symbolvec,auto& dualsymbolvec,int randompos,bool random, Vector2 directions)
+{
+    int commuteroworcolumn;
+    if (random)
+        commuteroworcolumn = GetRandomValue(0,1);
+    else
+        commuteroworcolumn = directions.x;
+
+    if(commuteroworcolumn == 0)
+    {
+        int A1 = symbolvec[randompos];
+        int A2 = dualsymbolvec[randompos];
+        if (A1 > A2) 
+            std::swap(A1,A2);
+
+        int bottomortoprow;
+        if (random)
+            bottomortoprow = GetRandomValue(0,1);
+        else
+            bottomortoprow = directions.y;
+        
+        int rowdifference = 0;
+        if(bottomortoprow == 0)
+        {
+            if (randompos >= symbolvec.size() - 1)
+                return;
+            rowdifference = 1;
+            //std::cout<<"commute bottom row"<<std::endl;
+        }
+        else 
+        {
+            if(randompos == 0)
+                return;
+            rowdifference = -1;
+            //std::cout<<"commute top row"<<std::endl;
+        }
+            
+        int B1 = symbolvec[randompos+rowdifference];
+        int B2 = dualsymbolvec[randompos+rowdifference];
+        if (B1 > B2) 
+            std::swap(B1,B2);
+        
+        if (A1 < B1 && B1 < A2 && A2 < B2)
+            return;
+        //std::cout<<"success"<<std::endl;
+        std::swap(symbolvec[randompos],symbolvec[randompos+rowdifference]);
+        std::swap(dualsymbolvec[randompos],dualsymbolvec[randompos+rowdifference]);
+    }
+    else 
+    {
+        int A1 = randompos;
+        auto it = std::find(dualsymbolvec.begin(),dualsymbolvec.end(),symbolvec[A1]);
+        int dualsymbcolumn = it - dualsymbolvec.begin();
+        int A2 = dualsymbcolumn;
+        if (A1 > A2) 
+            std::swap(A1,A2);
+
+        int leftorrightcolumn;
+        if (random)
+            leftorrightcolumn = GetRandomValue(0,1);
+        else 
+            leftorrightcolumn = directions.y;
+
+        int columndifference = 0;
+        if(leftorrightcolumn == 0)
+        {
+            if (symbolvec[randompos] == 1)
+                return;
+            columndifference = -1;
+            //std::cout<<"commute left column"<<std::endl;
+        }
+        else 
+        {
+            if (symbolvec[randompos] == symbolvec.size())
+                return;
+            columndifference = 1;
+            //std::cout<<"commute right column"<<std::endl;
+        }
+
+        it = std::find(symbolvec.begin(),symbolvec.end(),symbolvec[randompos]+columndifference);
+        int symbcolumn = it - symbolvec.begin();
+        int B1 = symbcolumn; 
+        it = std::find(dualsymbolvec.begin(),dualsymbolvec.end(),symbolvec[randompos]+columndifference);
+        int dualsymbcolumn2 = it - dualsymbolvec.begin();
+        int B2 = dualsymbcolumn2;
+        if (B1 > B2) 
+            std::swap(B1,B2);
+        
+        if (A1 < B1 && B1 < A2 && A2 < B2)
+            return;
+        //std::cout<<"success"<<std::endl;
+        std::swap(symbolvec[randompos],symbolvec[symbcolumn]);
+        std::swap(dualsymbolvec[dualsymbcolumn],dualsymbolvec[dualsymbcolumn2]);
+    }
+}
+void Gridmaker::do_destab_move(std::vector<bool> destabilizable, auto& symbolvec,auto& dualsymbolvec, int randompos,
+int* rowdiff, int* coldiff, int whichcorner, grid& currentgrid)
+{
+    if (destabilizable[0] == false)
+            return;
+
+        //std::cout<<"destabilize\n";
+        int deletedcolumn = symbolvec[randompos]+coldiff[whichcorner];
+        int newdualsymbol = dualsymbolvec[randompos+rowdiff[whichcorner]];
+        if (destabilizable[1] == false)
+        {
+            int newdualsymbol = dualsymbolvec[randompos+rowdiff[whichcorner]];
+            dualsymbolvec[randompos] = newdualsymbol;
+        }
+        else
+        {
+            auto it = std::find(dualsymbolvec.begin(),dualsymbolvec.end(),symbolvec[randompos]+coldiff[whichcorner]);
+            int newdualsymbolrow = std::distance(dualsymbolvec.begin(), it);
+            dualsymbolvec[newdualsymbolrow] = symbolvec[randompos];
+        }
+        symbolvec.erase(symbolvec.begin()+randompos+rowdiff[whichcorner]);
+        dualsymbolvec.erase(dualsymbolvec.begin()+randompos+rowdiff[whichcorner]);
+        
+        
+        for (int& val : symbolvec) 
+            if (val > deletedcolumn) val--;
+        for (int& val : dualsymbolvec) 
+            if (val > deletedcolumn) val--;
+
+        currentgrid.setn(currentgrid.getn() - 1);
 }
 
 void Gridmaker::do_cromwell_move (int crom, grid& currentgrid)
@@ -144,123 +269,14 @@ void Gridmaker::do_cromwell_move (int crom, grid& currentgrid)
         else
             chosensymb = 'O';
     }
-
     // std::cout<<"chosen symbol is "<<chosensymb<<" row "<<randompos<<" move "<<crom<<std::endl;
-
     auto& symbolvec = currentgrid.getVec(chosensymb);
     auto& dualsymbolvec = currentgrid.getDualVec(chosensymb);
 
     if (crom == -1)
-    {
-        if (destabilizable[0] == false)
-            return;
-
-        //std::cout<<"destabilize\n";
-        int deletedcolumn = symbolvec[randompos]+coldiff[whichcorner];
-        int newdualsymbol = dualsymbolvec[randompos+rowdiff[whichcorner]];
-        if (destabilizable[1] == false)
-        {
-            int newdualsymbol = dualsymbolvec[randompos+rowdiff[whichcorner]];
-            dualsymbolvec[randompos] = newdualsymbol;
-        }
-        else
-        {
-            auto it = std::find(dualsymbolvec.begin(),dualsymbolvec.end(),symbolvec[randompos]+coldiff[whichcorner]);
-            int newdualsymbolrow = std::distance(dualsymbolvec.begin(), it);
-            dualsymbolvec[newdualsymbolrow] = symbolvec[randompos];
-        }
-        symbolvec.erase(symbolvec.begin()+randompos+rowdiff[whichcorner]);
-        dualsymbolvec.erase(dualsymbolvec.begin()+randompos+rowdiff[whichcorner]);
-        
-        
-        for (int& val : symbolvec) 
-            if (val > deletedcolumn) val--;
-        for (int& val : dualsymbolvec) 
-            if (val > deletedcolumn) val--;
-
-        currentgrid.setn(currentgrid.getn() - 1);
-    }
-
+        do_destab_move(destabilizable,symbolvec,dualsymbolvec,randompos,rowdiff,coldiff,whichcorner,currentgrid);
     else if (crom == 0)
-    {
-        int commuteroworcolumn = GetRandomValue(0,1);
-        if(commuteroworcolumn == 0)
-        {
-            int A1 = symbolvec[randompos];
-            int A2 = dualsymbolvec[randompos];
-            if (A1 > A2) 
-                std::swap(A1,A2);
-
-            int bottomortoprow = GetRandomValue(0,1);
-            int rowdifference = 0;
-            if(bottomortoprow == 0)
-            {
-                if (randompos >= symbolvec.size() - 1)
-                    return;
-                rowdifference = 1;
-                //std::cout<<"commute bottom row"<<std::endl;
-            }
-            else 
-            {
-                if(randompos == 0)
-                    return;
-                rowdifference = -1;
-                //std::cout<<"commute top row"<<std::endl;
-            }
-                
-            int B1 = symbolvec[randompos+rowdifference];
-            int B2 = dualsymbolvec[randompos+rowdifference];
-            if (B1 > B2) 
-                std::swap(B1,B2);
-            
-            if (A1 < B1 && B1 < A2 && A2 < B2)
-                return;
-            //std::cout<<"success"<<std::endl;
-            std::swap(symbolvec[randompos],symbolvec[randompos+rowdifference]);
-            std::swap(dualsymbolvec[randompos],dualsymbolvec[randompos+rowdifference]);
-        }
-        else 
-        {
-            int A1 = randompos;
-            auto it = std::find(dualsymbolvec.begin(),dualsymbolvec.end(),symbolvec[A1]);
-            int dualsymbcolumn = it - dualsymbolvec.begin();
-            int A2 = dualsymbcolumn;
-            if (A1 > A2) 
-                std::swap(A1,A2);
-
-            int leftorrightcolumn = GetRandomValue(0,1);
-            int columndifference = 0;
-            if(leftorrightcolumn == 0)
-            {
-                if (symbolvec[randompos] == 1)
-                    return;
-                columndifference = -1;
-                //std::cout<<"commute left column"<<std::endl;
-            }
-            else 
-            {
-                if (symbolvec[randompos] == symbolvec.size())
-                    return;
-                columndifference = 1;
-                //std::cout<<"commute right column"<<std::endl;
-            }
-
-            it = std::find(symbolvec.begin(),symbolvec.end(),symbolvec[randompos]+columndifference);
-            int symbcolumn = it - symbolvec.begin();
-            int B1 = symbcolumn; 
-            it = std::find(dualsymbolvec.begin(),dualsymbolvec.end(),symbolvec[randompos]+columndifference);
-            int dualsymbcolumn2 = it - dualsymbolvec.begin();
-            int B2 = dualsymbcolumn2;
-            if (B1 > B2) 
-                std::swap(B1,B2);
-            
-            if (A1 < B1 && B1 < A2 && A2 < B2)
-                return;
-            //std::cout<<"success"<<std::endl;
-            std::swap(symbolvec[randompos],symbolvec[symbcolumn]);
-            std::swap(dualsymbolvec[dualsymbcolumn],dualsymbolvec[dualsymbcolumn2]);
-        }
-    }
+        do_commutation_move(symbolvec,dualsymbolvec,randompos,true,{0,0});
 
     else if (crom == 1)
     {

@@ -8,6 +8,7 @@ class grid
         std::vector<int> Ovec;
         std::vector<int> Xvec;
     public: 
+        grid ();
         grid (int n_, std::vector<int> Ovec_, std::vector<int> Xvec_);
         std::vector<int>& getVec(char symbol);
         std::vector<int>& getDualVec(char symbol);

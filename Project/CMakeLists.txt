@@ -16,6 +16,10 @@ add_executable(knotangle
         CoreModel/grid.cpp
         CoreModel/Gridmaker.cpp
         Graphics/temp.cpp
+        Graphics/Nbox.cpp
+        Graphics/Button.cpp
+        Graphics/Checkbox.cpp
+        Graphics/knotbox.cpp
     )
 
 target_include_directories(knotangle PRIVATE
@@ -24,6 +28,8 @@ target_include_directories(knotangle PRIVATE
 )
 
 target_link_libraries(knotangle PRIVATE raylib)
+
+file(CREATE_LINK ${CMAKE_CURRENT_SOURCE_DIR}/Resources ${CMAKE_CURRENT_BINARY_DIR}/Resources SYMBOLIC)
 
 if (APPLE)
     target_link_libraries(knotangle PRIVATE "-framework IOKit" "-framework Cocoa" "-framework OpenGL" "-framework CoreVideo")

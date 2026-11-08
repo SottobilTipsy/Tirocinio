@@ -294,6 +294,102 @@ CoreModel/grid.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/CoreModel/grid.cpp.s
 .PHONY : CoreModel/grid.cpp.s
 
+Graphics/Button.o: Graphics/Button.cpp.o
+.PHONY : Graphics/Button.o
+
+# target to build an object file
+Graphics/Button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Button.cpp.o
+.PHONY : Graphics/Button.cpp.o
+
+Graphics/Button.i: Graphics/Button.cpp.i
+.PHONY : Graphics/Button.i
+
+# target to preprocess a source file
+Graphics/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Button.cpp.i
+.PHONY : Graphics/Button.cpp.i
+
+Graphics/Button.s: Graphics/Button.cpp.s
+.PHONY : Graphics/Button.s
+
+# target to generate assembly for a file
+Graphics/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Button.cpp.s
+.PHONY : Graphics/Button.cpp.s
+
+Graphics/Checkbox.o: Graphics/Checkbox.cpp.o
+.PHONY : Graphics/Checkbox.o
+
+# target to build an object file
+Graphics/Checkbox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o
+.PHONY : Graphics/Checkbox.cpp.o
+
+Graphics/Checkbox.i: Graphics/Checkbox.cpp.i
+.PHONY : Graphics/Checkbox.i
+
+# target to preprocess a source file
+Graphics/Checkbox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.i
+.PHONY : Graphics/Checkbox.cpp.i
+
+Graphics/Checkbox.s: Graphics/Checkbox.cpp.s
+.PHONY : Graphics/Checkbox.s
+
+# target to generate assembly for a file
+Graphics/Checkbox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.s
+.PHONY : Graphics/Checkbox.cpp.s
+
+Graphics/Nbox.o: Graphics/Nbox.cpp.o
+.PHONY : Graphics/Nbox.o
+
+# target to build an object file
+Graphics/Nbox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o
+.PHONY : Graphics/Nbox.cpp.o
+
+Graphics/Nbox.i: Graphics/Nbox.cpp.i
+.PHONY : Graphics/Nbox.i
+
+# target to preprocess a source file
+Graphics/Nbox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.i
+.PHONY : Graphics/Nbox.cpp.i
+
+Graphics/Nbox.s: Graphics/Nbox.cpp.s
+.PHONY : Graphics/Nbox.s
+
+# target to generate assembly for a file
+Graphics/Nbox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.s
+.PHONY : Graphics/Nbox.cpp.s
+
+Graphics/knotbox.o: Graphics/knotbox.cpp.o
+.PHONY : Graphics/knotbox.o
+
+# target to build an object file
+Graphics/knotbox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o
+.PHONY : Graphics/knotbox.cpp.o
+
+Graphics/knotbox.i: Graphics/knotbox.cpp.i
+.PHONY : Graphics/knotbox.i
+
+# target to preprocess a source file
+Graphics/knotbox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.i
+.PHONY : Graphics/knotbox.cpp.i
+
+Graphics/knotbox.s: Graphics/knotbox.cpp.s
+.PHONY : Graphics/knotbox.s
+
+# target to generate assembly for a file
+Graphics/knotbox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/knotangle.dir/build.make CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.s
+.PHONY : Graphics/knotbox.cpp.s
+
 Graphics/temp.o: Graphics/temp.cpp.o
 .PHONY : Graphics/temp.o
 
@@ -367,6 +463,18 @@ help:
 	@echo "... CoreModel/grid.o"
 	@echo "... CoreModel/grid.i"
 	@echo "... CoreModel/grid.s"
+	@echo "... Graphics/Button.o"
+	@echo "... Graphics/Button.i"
+	@echo "... Graphics/Button.s"
+	@echo "... Graphics/Checkbox.o"
+	@echo "... Graphics/Checkbox.i"
+	@echo "... Graphics/Checkbox.s"
+	@echo "... Graphics/Nbox.o"
+	@echo "... Graphics/Nbox.i"
+	@echo "... Graphics/Nbox.s"
+	@echo "... Graphics/knotbox.o"
+	@echo "... Graphics/knotbox.i"
+	@echo "... Graphics/knotbox.s"
 	@echo "... Graphics/temp.o"
 	@echo "... Graphics/temp.i"
 	@echo "... Graphics/temp.s"

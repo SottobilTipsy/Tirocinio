@@ -6,6 +6,10 @@ knotangle: \
   CMakeFiles/knotangle.dir/CoreModel/grid.cpp.o \
   CMakeFiles/knotangle.dir/CoreModel/Gridmaker.cpp.o \
   CMakeFiles/knotangle.dir/Graphics/temp.cpp.o \
+  CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o \
+  CMakeFiles/knotangle.dir/Graphics/Button.cpp.o \
+  CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o \
+  CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o \
   _deps/raylib-build/raylib/libraylib.a \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/libpthread.a \
   /usr/lib/x86_64-linux-gnu/libOpenGL.so \
@@ -59,6 +63,14 @@ CMakeFiles/knotangle.dir/CoreModel/grid.cpp.o:
 CMakeFiles/knotangle.dir/CoreModel/Gridmaker.cpp.o:
 
 CMakeFiles/knotangle.dir/Graphics/temp.cpp.o:
+
+CMakeFiles/knotangle.dir/Graphics/Nbox.cpp.o:
+
+CMakeFiles/knotangle.dir/Graphics/Button.cpp.o:
+
+CMakeFiles/knotangle.dir/Graphics/Checkbox.cpp.o:
+
+CMakeFiles/knotangle.dir/Graphics/knotbox.cpp.o:
 
 _deps/raylib-build/raylib/libraylib.a:
 
